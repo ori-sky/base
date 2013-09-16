@@ -1,0 +1,22 @@
+#!/bin/sh
+
+case "$#" in
+0)
+	echo 'base: missing input base operand'
+	exit 1
+	;;
+1)
+	echo 'base: missing output base operand'
+	exit 1
+	;;
+2)
+	while read LINE; do
+		echo "ibase=$1; obase=$2; $LINE" | bc
+	done
+	;;
+*)
+	echo "ibase=$1; obase=$2; $3" | bc
+	;;
+esac
+
+exit 0
