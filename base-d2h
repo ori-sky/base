@@ -1,0 +1,13 @@
+#!/bin/sh
+export BC_LINE_LENGTH=0
+case "$#" in
+0)
+	while read LINE; do
+		echo "obase=16; ibase=10; $LINE" | bc
+	done
+	;;
+*)
+	echo "obase=16; ibase=10; $1" | bc
+	;;
+esac
+exit 0
