@@ -1,5 +1,4 @@
 #!/bin/sh
-
 case "$#" in
 0)
 	echo 'base: missing input base operand'
@@ -11,12 +10,11 @@ case "$#" in
 	;;
 2)
 	while read LINE; do
-		echo "ibase=$1; obase=$2; $LINE" | bc
+		echo "obase=$2; ibase=$1; $LINE" | bc
 	done
 	;;
 *)
-	echo "ibase=$1; obase=$2; $3" | bc
+	echo "obase=$2; ibase=$1; $3" | bc
 	;;
 esac
-
 exit 0
